@@ -2,6 +2,7 @@
   border-radius: 20px;
 }
 
+/* classe para debugging */
 .border {
   border: 3px red solid;
 }
