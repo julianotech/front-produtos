@@ -1,15 +1,16 @@
-import { createApp } from "vue";
-import { Quasar } from "quasar";
+import { createApp } from 'vue';
+import { Quasar } from 'quasar';
 
-import { pinia, router, villus } from "./modules";
-import App from "./App.vue";
+import { pinia, router, villus } from './modules';
+import App from './App.vue';
 
 // Import icon libraries
-import "@quasar/extras/material-icons/material-icons.css";
+import '@quasar/extras/material-icons/material-icons.css';
 // Import Quasar css
-import "./assets/global.css";
-import "./style.css";
-import "uno.css";
+import 'quasar/src/css/index.sass';
+import './assets/global.css';
+import './style.css';
+import 'uno.css';
 
 const app = createApp(App)
   .use(Quasar, {
@@ -19,4 +20,4 @@ const app = createApp(App)
   .use(router)
   .use(pinia);
 
-app.mount("#app");
+app.mount('#app');
