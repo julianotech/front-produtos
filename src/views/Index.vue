@@ -38,7 +38,7 @@
   </div>
   <q-btn @click="addDiv">Add Div</q-btn>
 
-  <q-btn @click="loga">Salvar</q-btn>
+  <q-btn @click="submit">Salvar</q-btn>
 </template>
 <script lang="ts">
 type Positions = 'left' | 'center' | 'right';
@@ -70,6 +70,9 @@ export default defineComponent({
         document.body.appendChild(div);
         divName.value = '';
         form.push(div);
+      },
+      submit() {
+        form.forEach(console.log);
       },
     };
   },
