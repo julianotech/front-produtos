@@ -1,7 +1,7 @@
 <template>
-  <q-card class="row">
-    <h1 class="left border fit" :class="justifyClass()">{{ justify }}</h1>
-  </q-card>
+  <div class="row">
+    <h1 class="fit" :class="justify">{{ justify }}</h1>
+  </div>
   <div class="column">
     <input type="text" v-model="divName" @keyup.down="addDiv" class="col-12" />
     <input
@@ -12,38 +12,16 @@
     />
     <input type="text" v-model="color" @keyup.enter="addDiv" class="col-12" />
 
-    <div class="q-gutter-sm">
-      <q-radio
-        v-model="justify"
-        checked-icon="task_alt"
-        unchecked-icon="panorama_fish_eye"
-        val="left"
-        label="Left"
-      />
-      <q-radio
-        v-model="justify"
-        checked-icon="task_alt"
-        unchecked-icon="panorama_fish_eye"
-        val="center"
-        label="Center"
-      />
-      <q-radio
-        v-model="justify"
-        checked-icon="task_alt"
-        unchecked-icon="panorama_fish_eye"
-        val="right"
-        label="Right"
-      />
-    </div>
+    <TextJustify @justify="justifyClass" />
   </div>
   <q-btn @click="addDiv">Add Div</q-btn>
 
   <q-btn @click="submit">Salvar</q-btn>
 </template>
 <script lang="ts">
-type Positions = 'left' | 'center' | 'right';
+import type { Positions, Justify } from '../contracts';
 const divName = ref('onze');
-const justify = ref<Positions>('left');
+const justify = ref<Justify>('text-left');
 const offsetLeft = ref<string>('');
 const color = ref('');
 const form = reactive<HTMLDivElement[]>([]);
@@ -55,8 +33,8 @@ export default defineComponent({
       divName,
       justify,
       offsetLeft,
-      justifyClass() {
-        return `text-${justify.value}`;
+      justifyClass(position: Positions) {
+        justify.value = `text-${position}`;
       },
       offsetResult() {
         return Number(offsetLeft.value) + 'px';
