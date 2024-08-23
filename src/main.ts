@@ -10,11 +10,6 @@ import './assets/global.css';
 import './style.css';
 import 'uno.css';
 
-import '@quasar/extras/material-icons/material-icons.css';
-import './assets/global.css';
-import './style.css';
-import 'uno.css';
-import 'quasar/src/css/index.sass';
 const app = createApp(App)
   .use(Quasar, {
     plugins: {},
