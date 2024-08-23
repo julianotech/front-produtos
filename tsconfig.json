@@ -14,6 +14,7 @@
     "noEmit": true,
     "paths": {
       "@/*": ["./src/*"],
+      "~types": ["./src/graphql/generated/graphql"]
     }
   },
 
