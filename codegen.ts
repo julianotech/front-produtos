@@ -32,10 +32,8 @@ const config: CodegenConfig = {
       },
       plugins: ['typescript-operations', 'typed-document-node'],
     },
-    // "src/graphql/generated/schema.json": {
-    //   plugins: ["introspection"],
-    // },
   },
+
   hooks: {
     afterAllFileWrite: ['prettier --write'],
   },
