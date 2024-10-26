@@ -17,6 +17,7 @@
     "@apollo/client": "^3.10.6",
     "@quasar/extras": "^1.15.7",
     "@rollup/plugin-graphql": "^2.0.2",
+    "dotenv": "^16.4.5",
     "graphql": "^16.6.0",
     "pinia": "^2.0.27",
     "pinia-plugin-persistedstate": "^3.2.1",

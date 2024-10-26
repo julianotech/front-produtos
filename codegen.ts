@@ -1,8 +1,7 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
-// console.log({env: process.env })
+import { env } from './src/infra/config';
 
-const schema = process.env.VITE_APP_ENDPOINT || 'http://0.0.0.0:30000/graphql';
-// console.log({ schema, env: process.env })
+const schema = env.SERVER_ENDPOINT;
 
 const config: CodegenConfig = {
   overwrite: true,

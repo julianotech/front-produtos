@@ -58,6 +58,7 @@ export default defineConfig({
         'src/stores',
         'src/support',
         'src/graphql/generated',
+        'src/infra/',
       ],
       vueTemplate: true,
     }),
