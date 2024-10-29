@@ -57,6 +57,7 @@ export default defineConfig({
         'src/helpers',
         'src/stores',
         'src/support',
+        'src/modules',
         'src/graphql/generated',
         'src/infra/',
       ],

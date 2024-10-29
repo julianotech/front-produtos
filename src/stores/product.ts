@@ -31,11 +31,14 @@ export const productStore = defineStore(storeId, {
       return await query<Product>(opts);
     },
 
-    async add(data: ProductCreateInput): Promise<Product> {
-      return await mutation<Product, ProductCreateInput>(
-        ProductAddDocument,
-        data,
-      );
+    async add(data: ProductCreateInput): Promise<string> {
+      return await mutation<
+        { productCreate: { id: string } },
+        ProductCreateInput
+      >(ProductAddDocument, data).then(({ productCreate }) => {
+        console.log({ productCreate });
+        return productCreate.id;
+      });
     },
 
     async update(id: string, data: ProductUpdateInput): Promise<Product> {

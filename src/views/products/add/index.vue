@@ -12,19 +12,24 @@
 </template>
 
 <script lang="ts">
-import type { ProductCreateInput } from '@/graphql/generated/graphql';
+import type { ProductUpdateInput } from '@/graphql/generated/graphql';
 
 export default defineComponent({
   name: 'Add',
   setup() {
-    const data = reactive<ProductCreateInput>({
+    const data = reactive<ProductUpdateInput>({
       name: 'oito',
-      price: 2,
       stock: 10,
+      price: 2,
     });
     const submit = async () => {
       try {
-        await productStore.add({ data });
+        await productStore.add({ data }).then((res) => {
+          console.log({ res });
+          router.push(`/products/edit/${res}`);
+        });
+
+        // const router = useRouter()
       } catch (error) {
         console.error('Error adding product:', error);
       }
