@@ -1,6 +1,10 @@
 import { defineStore } from 'pinia';
 
-import type { Product } from '@/graphql/generated/graphql';
+import type {
+  Product,
+  ProductCreateInput,
+  ProductUpdateInput,
+} from '@/graphql/generated/graphql';
 
 const storeId = 'products';
 export const productStore = defineStore(storeId, {
@@ -25,6 +29,20 @@ export const productStore = defineStore(storeId, {
       const opts = { query: ProductDocument, variables: { id } };
 
       return await query<Product>(opts);
+    },
+
+    async add(data: ProductCreateInput): Promise<Product> {
+      return await mutation<Product, ProductCreateInput>(
+        ProductAddDocument,
+        data,
+      );
+    },
+
+    async update(id: string, data: ProductUpdateInput): Promise<Product> {
+      return await mutation<Product, { id: string; data: ProductUpdateInput }>(
+        ProductUpdateDocument,
+        { id, data },
+      );
     },
   },
   // persist: true,

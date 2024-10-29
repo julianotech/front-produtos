@@ -1,0 +1,11 @@
+mutation ProductAdd($data: ProductCreateInput!) {
+  productCreate(data: $data) {
+    id
+  }
+}
+
+mutation ProductUpdate($id: ID!, $data: ProductUpdateInput!) {
+  productUpdate(id: $id, data: $data) {
+    id
+  }
+}
