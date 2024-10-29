@@ -15,7 +15,7 @@
 import type { ProductUpdateInput } from '@/graphql/generated/graphql';
 
 export default defineComponent({
-  name: 'Add',
+  name: 'ProductAdd',
   setup() {
     const data = reactive<ProductUpdateInput>({
       name: 'oito',

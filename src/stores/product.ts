@@ -28,7 +28,9 @@ export const productStore = defineStore(storeId, {
     async getById(id: string): Promise<Product> {
       const opts = { query: ProductDocument, variables: { id } };
 
-      return await query<Product>(opts);
+      return await query<{ product: Product }>(opts).then(({ product }) => {
+        return product;
+      });
     },
 
     async add(data: ProductCreateInput): Promise<string> {
@@ -42,9 +44,11 @@ export const productStore = defineStore(storeId, {
     },
 
     async update(id: string, data: ProductUpdateInput): Promise<Product> {
-      return await mutation<Product, { id: string; data: ProductUpdateInput }>(
-        ProductUpdateDocument,
-        { id, data },
+      return await mutation<
+        { productUpdate: Product },
+        { id: string; data: ProductUpdateInput }
+      >(ProductUpdateDocument, { id, data }).then(
+        ({ productUpdate }) => productUpdate,
       );
     },
   },

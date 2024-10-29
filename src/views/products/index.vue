@@ -2,6 +2,13 @@
   <q-list class="border">
     <q-item v-for="product in products" :key="product.id" class="q-pa-sm">
       {{ product.name }}
+      <q-action-sheet>
+        <q-list>
+          <q-item clickable :to="`/products/edit/${product.id}`">
+            <q-item-section><q-icon>Edit</q-icon></q-item-section>
+          </q-item>
+        </q-list>
+      </q-action-sheet>
     </q-item>
   </q-list>
 </template>
