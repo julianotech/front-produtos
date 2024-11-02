@@ -44,6 +44,7 @@ export default defineComponent({
 
     return {
       submit,
+      router,
       data,
     };
   },

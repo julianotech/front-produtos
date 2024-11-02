@@ -1,14 +1,14 @@
 <template>
-  <q-list class="border">
+  <q-list class="border row q-col-gutter-md">
     <q-item v-for="product in products" :key="product.id" class="q-pa-sm">
-      {{ product.name }}
-      <q-action-sheet>
-        <q-list>
+      <q-card class="bg-grey-6">
+        {{ product.name }}
+        <q-action-sheet>
           <q-item clickable :to="`/products/edit/${product.id}`">
-            <q-item-section><q-icon>Edit</q-icon></q-item-section>
+            <q-icon>mdi-pencil</q-icon>
           </q-item>
-        </q-list>
-      </q-action-sheet>
+        </q-action-sheet>
+      </q-card>
     </q-item>
   </q-list>
 </template>
