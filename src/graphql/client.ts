@@ -4,7 +4,7 @@ import {
   type HttpOptions,
   InMemoryCache,
   type ApolloLink,
-} from "@apollo/client/core";
+} from '@apollo/client/core';
 
 export const GRAPHQL_API_URL = import.meta.env.VITE_APP_ENDPOINT;
 
@@ -16,7 +16,7 @@ const createLink = (opts: HttpOptions = {}): ApolloLink => {
 export const setAuthToken = (token?: string | null): void => {
   const options: HttpOptions = {
     headers: {
-      "Access-Control-Allow-Origin": "*",
+      'Access-Control-Allow-Origin': '*',
     },
   };
 
@@ -38,7 +38,7 @@ const apolloClient = new ApolloClient({
   link: createLink(),
   defaultOptions: {
     watchQuery: {
-      fetchPolicy: "cache-and-network",
+      fetchPolicy: 'cache-and-network',
     },
   },
 });

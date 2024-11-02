@@ -1,10 +1,10 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia';
 
-const storeId = "users";
+const storeId = 'users';
 const useUsers = defineStore(storeId, {
   state: () => {
     const localData = localStorage.getItem(storeId);
-    if (localData !== "undefined" && localData) {
+    if (localData !== 'undefined' && localData) {
       const data = JSON.parse(localData);
       return {
         name: data.login,
@@ -13,7 +13,7 @@ const useUsers = defineStore(storeId, {
       };
     }
     return {
-      name: "",
+      name: '',
       profile: {},
       // ...
     };

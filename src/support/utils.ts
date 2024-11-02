@@ -1,8 +1,8 @@
 export const camelToSnake = (key: string): string => {
-  let snakeCaseKey = "";
+  let snakeCaseKey = '';
   for (let i = 0; i < key.length; i++) {
     if (i > 0 && key[i] === key[i].toUpperCase()) {
-      snakeCaseKey += "_";
+      snakeCaseKey += '_';
     }
     snakeCaseKey += key[i].toLowerCase();
   }
@@ -10,7 +10,7 @@ export const camelToSnake = (key: string): string => {
 };
 
 export function snakeToCamel(obj: any): Record<keyof typeof obj, any> {
-  if (obj === null || typeof obj !== "object") {
+  if (obj === null || typeof obj !== 'object') {
     return obj;
   }
   if (Array.isArray(obj)) {
@@ -25,6 +25,6 @@ export function snakeToCamel(obj: any): Record<keyof typeof obj, any> {
       acc[camelKey] = snakeToCamel(obj[key]);
       return acc;
     },
-    {}
+    {},
   );
 }

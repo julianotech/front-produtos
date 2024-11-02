@@ -1,5 +1,5 @@
-export * from "./environment";
-export * from "./api";
+export * from './environment';
+export * from './api';
 
 export function increment(value: number) {
   return (value += 1);
